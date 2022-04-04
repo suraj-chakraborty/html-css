@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hidden Password Viewer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="show.js"></script>
+</head>
+<body>
+<Form onsubmit="return false">
+    <div class="form-item"><label>UserName</label>
+        <div class="input-wrapper"><input type="text" id="username"/></div>
+    </div>
+    <div class="form-item"><label>PassWord</label>
+        <div class="input-wrapper"><input type="password" id="password"/>
+            <button type="button" id="eyeball">
+                <div class="eye"></div>
+            </button>
+            <div id="beam"></div>
+        </div>
+    </div>
+    <button id="submit"> Submit</button>
+</Form>
+
+
+</body>
+</html>
