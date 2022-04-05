@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Hidden Password Viewer</title>
     <link rel="stylesheet" href="style.css">
-    <script src="show.js"></script>
 </head>
 <body>
 <Form onsubmit="return false">
@@ -24,4 +23,27 @@
 
 
 </body>
+<script>
+    const root = document.documentElement;
+    const eye1 = document.getElementById('eyeball');
+    const beam = document.getElementById('beam');
+    const passwordInput = document.getElementById('password');
+    root.addEventListener('mousemove', (e) => {
+        let rect = beam.getBoundingClientRect();
+        let mouseX = rect.right + (rect.width / 50);
+        let mouseY = rect.top + (rect.height / 50);
+        let rad = Math.atan2(mouseX - e.pageX, mouseY - e.pageY);
+        let beamDegrees = (rad + (20 / Math.PI) * -1) - 350;
+        console.log(beamDegrees)
+        root.style.setProperty('--beamDegrees', `${beamDegrees}deg`);
+
+        });
+
+        eye1.addEventListener('click', e => {
+            e.preventDefault();
+            document.body.classList.toggle('show-password');
+            passwordInput.type = passwordInput.type === 'password' ? 'test' : 'password'
+            passwordInput.focus()
+        })
+</script>
 </html>
