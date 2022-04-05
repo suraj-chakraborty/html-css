@@ -1,7 +1,7 @@
 const root = document.documentElement;
 const eye = document.getElementById('eyeball');
 const beam = document.getElementById("beam");
-const password = document.getElementById("password");
+const passwordT = document.getElementById("password");
 
 root.addEventListener('mousemove', (e) => {
         let rect = beam.getBoundingClientRect();
@@ -19,6 +19,6 @@ root.addEventListener('mousemove', (e) => {
 eye.addEventListener('click', e => {
         e.preventDefault();
         document.body.classList.toggle('show-password');
-        password.type = password.type === 'password' ? 'test' : 'password'
-        password.focus()
+        passwordT.type = passwordT.type === 'password' ? 'test' : 'password'
+        passwordT.focus()
 });
