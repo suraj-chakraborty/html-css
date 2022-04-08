@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="piano.css" />
+    <title>piano_web</title>
+  </head>
+  <body>
+    <section id="wrap">
+      <section id="main">
+        <div class="playing"></div>
+        <div class="keys">
+          <div data-key="81" class="key" data-note="A">
+            <span class="hints">Q</span>
+          </div>
+          <div data-key="65" class="key sharp" data-note="A#">
+            <span class="hints">A</span>
+          </div>
+          <div data-key="87" class="key" data-note="B">
+            <span class="hints">W</span>
+          </div>
+          <div data-key="83" class="key sharp" data-note="B#">
+            <span class="hints">S</span>
+          </div>
+          <div data-key="69" class="key" data-note="C">
+            <span class="hints">E</span>
+          </div>
+          <div data-key="68" class="key sharp" data-note="C#">
+            <span class="hints">D</span>
+          </div>
+          <div data-key="82" class="key" data-note="D">
+            <span class="hints">R</span>
+          </div>
+          <div data-key="70" class="key sharp" data-note="D#">
+            <span class="hints">F</span>
+          </div>
+          <div data-key="84" class="key" data-note="E">
+            <span class="hints">T</span>
+          </div>
+          <div data-key="71" class="key sharp" data-note="E#">
+            <span class="hints">G</span>
+          </div>
+          <div data-key="89" class="key" data-note="F">
+            <span class="hints">Y</span>
+          </div>
+          <div data-key="72" class="key sharp" data-note="F#">
+            <span class="hints">H</span>
+          </div>
+          <div data-key="85" class="key" data-note="G">
+            <span class="hints">U</span>
+          </div>
+          <div data-key="74" class="key sharp" data-note="G#">
+            <span class="hints">J</span>
+          </div>
+          <div data-key="73" class="key" data-note="H">
+            <span class="hints">I</span>
+          </div>
+          <div data-key="75" class="key sharp" data-note="H#">
+            <span class="hints">K</span>
+          </div>
+          <div data-key="79" class="key" data-note="I">
+            <span class="hints">O</span>
+          </div>
+          <div data-key="76" class="key sharp" data-note="I#">
+            <span class="hints">L</span>
+          </div>
+          <div data-key="80" class="key" data-note="J">
+            <span class="hints">P</span>
+          </div>
+          <div data-key="59" class="key sharp" data-note="J#">
+            <span class="hints">;</span>
+          </div>
+          <div data-key="49" class="key" data-note="K">
+            <span class="hints">1</span>
+          </div>
+          <div data-key="50" class="key sharp" data-note="K#">
+            <span class="hints">2</span>
+          </div>
+          <div data-key="51" class="key" data-note="L">
+            <span class="hints">3</span>
+          </div>
+          <div data-key="52" class="key sharp" data-note="L#">
+            <span class="hints">4</span>
+          </div>
+        </div>
+        <audio data-key="81" src="./sound/key01.wav"></audio>
+        <audio data-key="65" src="./sound/key02.wav"></audio>
+        <audio data-key="87" src="./sound/key03.wav"></audio>
+        <audio data-key="83" src="./sound/key04.wav"></audio>
+        <audio data-key="69" src="./sound/key05.wav"></audio>
+        <audio data-key="68" src="./sound/key06.wav"></audio>
+        <audio data-key="82" src="./sound/key07.wav"></audio>
+        <audio data-key="70" src="./sound/key08.wav"></audio>
+        <audio data-key="84" src="./sound/key09.wav"></audio>
+        <audio data-key="71" src="./sound/key10.wav"></audio>
+        <audio data-key="89" src="./sound/key11.wav"></audio>
+        <audio data-key="72" src="./sound/key12.wav"></audio>
+        <audio data-key="85" src="./sound/key13.wav"></audio>
+        <audio data-key="74" src="./sound/key14.wav"></audio>
+        <audio data-key="73" src="./sound/key15.wav"></audio>
+        <audio data-key="75" src="./sound/key16.wav"></audio>
+        <audio data-key="79" src="./sound/key17.wav"></audio>
+        <audio data-key="76" src="./sound/key18.wav"></audio>
+        <audio data-key="80" src="./sound/key19.wav"></audio>
+        <audio data-key="59" src="./sound/key20.wav"></audio>
+        <audio data-key="49" src="./sound/key21.wav"></audio>
+        <audio data-key="50" src="./sound/key22.wav"></audio>
+        <audio data-key="51" src="./sound/key23.wav"></audio>
+        <audio data-key="52" src="./sound/key24.wav"></audio>
+      </section>
+    </section>
+
+    <script>
+      const keys = document.querySelectorAll(".key"),
+        note = document.querySelector(".playing"),
+        hints = document.querySelectorAll(".hints");
+      function playNote(e) {
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`),
+          key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+        if (!key) return;
+        const keyNote = key.getAttribute("data-key");
+        key.classList.add("playing");
+        note.innerHTML = keyNote;
+        audio.currentTime = 0;
+        audio.play();
+      }
+      function removeTransition(e) {
+        if (e.propertyName !== "transform") return;
+        this.classList.remove("playing");
+      }
+      function hintsOn(e, index) {
+        e.setAttribute("style", "transition-delay:" + index * 50 + "ms");
+      }
+      hints.forEach(hintsOn);
+      keys.forEach((key) =>
+        key.addEventListener("transitionend", removeTransition)
+      );
+      window.addEventListener("keydown", playNote);
+    </script>
+  </body>
+</html>
