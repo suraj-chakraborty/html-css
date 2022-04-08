@@ -2,7 +2,7 @@ html {
   width: 100%;
   position: absolute;
     left: 15em ;
-    background: #000;  
+    background: rgb(45, 90, 238);  
     font-family: 'Noto Serif', serif;  
     -webkit-font-smoothing: antialiased;  
     text-align: center;  
