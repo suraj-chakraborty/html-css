@@ -1,0 +1,132 @@
+body {
+  background-color: aliceblue;
+}
+
+:root
+{
+  --line_color:rgb(136, 134, 142);
+  --text_color: #777;
+  --comment_bg_color: white;
+}
+
+.notification_grid {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 10px;
+  padding-top: 10px;
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.notification_card > header {
+  display: flex;
+}
+
+.avatar::after  {
+  content: "" ;
+  position: absolute ;
+  display: block;
+  background-color: var(--line_color);
+  left: 0;
+  right: 0;
+  margin: 0 auto ;
+  width: 2px;
+  top: 20px;
+  bottom: calc(10px * -1) ;
+  z-index: -1;
+}
+
+.avatar:first-child::before {
+  content: "";
+  position: absolute;
+  background-color: var(--line_color);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 2px;
+  top: -17px;
+  bottom: 100%;
+}
+
+.notification_grid:last-child .avatar::after{
+  display: none;
+}
+
+.notification_card {
+  background-color: var(--comment_bg_color);
+  border: 2px solid var(--line_color);
+  width: 100%;
+  border-radius: 0.25rem;
+  padding: 6px;
+}
+
+.header {
+  flex-grow: 1;
+  font-weight: 400;
+  font-family: serif;
+  font-size: 18px;
+  padding-left: 10px;
+}
+.avatar {
+  position: relative;
+  display: flex;
+}
+
+.avatar > img {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--comment_bg_color);
+  border-radius: 100%;
+  
+}
+
+.date {
+  color: var(--text_color);
+}
+
+.icon > path {
+  fill: var(--text_color);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.comments {
+  font-size: 14px;
+  font-family: none;
+  margin-top: 6px;
+  background-color: var(--comment_bg_color);
+  font-weight: 200;
+  color: #444;
+}
+
+.notification_headers {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1px;
+  border-bottom: 2px solid var(--line_color);
+  margin-bottom: 6px;
+  padding-bottom: 6px;
+  padding-top: 30px;
+}
+
+.time {
+  color: #777;
+  font-weight: 500;
+}
+
+.day {
+  font-style: unset;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  color: gray;
+}
