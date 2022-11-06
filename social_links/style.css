@@ -1,0 +1,48 @@
+body
+{
+	margin: 0;
+	padding: 0;
+	font-family: verdana;
+	background: #fff;
+}
+ul
+{
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	display: flex;
+}
+ul li
+{
+	position: relative;
+	list-style: none;
+	text-align: center;
+	width: 80px;
+	cursor: pointer;
+}
+ul li .text
+{
+	position: absolute;
+	width: 0;
+	left: 50%;
+	margin-top: 10px;
+	margin-left: 0;
+	transition: 1s;
+	overflow: hidden;
+	white-space: nowrap;
+	font-size: 18px;
+	color: #ff0175;
+}
+ul li .fa
+{
+	font-size: 2em;
+	color: #ff0175;
+}
+ul li:hover .text
+{
+	width: 120px;
+	margin-left: -60px;
+}
