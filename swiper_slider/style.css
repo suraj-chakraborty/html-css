@@ -1,0 +1,41 @@
+*
+{
+	margin: 0;
+	padding: 0;
+}
+    body
+	{
+    
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+	  display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 min-height: 100%;
+	
+	 background: #111;
+    }
+	
+	.swiper-container img {
+		width: 100%;
+		height:100%;
+	}
+	
+    .swiper-container {
+      width: 100%;
+	  height:100%;
+      padding-top: 50px;
+      padding-bottom: 200px;
+	  
+    }
+
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 500px;
+      height: 500px;
+	  background:#000;
+	  -webkit-box-reflect: below 1px linear-gradient(transparent,transparent,#0006);
+
+    }
