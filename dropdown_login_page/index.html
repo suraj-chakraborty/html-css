@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<div class="container">
+	<div class="signIn">Click Here to Sign In</div>
+	<div class="fold">
+		<form>
+			<input type="text" name="" placeholder="Username">
+			<input type="password" name="" placeholder="Password">
+			<input type="submit" name="" value="Login">
+			<a href="#">Forget Password</a>
+		</form>
+	</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.js">
+</script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.signIn').click(function(){
+			$('.fold').toggleClass('active')
+		})
+	})
+</script>
+</body>
+</html>
